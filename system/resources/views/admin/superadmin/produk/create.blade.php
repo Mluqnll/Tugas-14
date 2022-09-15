@@ -39,7 +39,11 @@
                         <form action="{{ url('admin/produk') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-4"><label class="mb-3">Nama Toko</label>
+                                <div class="col-md-4"><label class="mb-3">Nama Toko
+                                        @error('id_penjual')
+                                            <b style="color:red">{{ $message }}</b>
+                                        @enderror
+                                    </label>
                                     <select name="id_penjual" class="form-control">
                                         <option value="">Pilih Nama Toko</option>
                                         @foreach ($list_penjual as $penjual)
@@ -47,29 +51,49 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-4"><label class="mb-3">Nama produk</label>
+                                <div class="col-md-4"><label class="mb-3">Nama produk
+                                        @error('nama')
+                                            <b style="color:red">{{ $message }}</b>
+                                        @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="nama">
                                 </div>
-                                <div class="col-md-4"><label class="mb-3">Foto</label>
+                                <div class="col-md-4"><label class="mb-3">Foto
+                                        @error('foto')
+                                            <b style="color:red">{{ $message }}</b>
+                                        @enderror
+                                    </label>
                                     <input type="file" class="form-control" name="foto" accept=".jpg">
                                 </div>
-                                
+
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Harga</label>
+                                        <label class="my-3">Harga
+                                            @error('harga')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="text" id="date-format" class="form-control" name="harga">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Stock</label>
+                                        <label class="my-3">Stock
+                                            @error('stock')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="form-control" id="timepicker" class="form-control" name="stock">
                                     </div>
                                 </div>
                             </div>
-                            <label class="my-3">Deskripsi</label>
+                            <label class="my-3">Deskripsi
+                                @error('deskripsi')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <textarea name="deskripsi" class="form-control"></textarea>
                             <div style="margin-top: 2%" class="float-right">
                                 <button class="btn btn-primary">Submit</button>

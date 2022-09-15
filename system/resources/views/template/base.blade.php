@@ -29,7 +29,6 @@
     <link href="{{ url('public/superadmin') }}/plugins/daterangepicker/daterangepicker.css" rel="stylesheet"
         type="text/css" />
     <link href="{{ url('public/superadmin') }}/css/app.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body class="dark-sidenav">

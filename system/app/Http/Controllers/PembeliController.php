@@ -24,6 +24,18 @@ class PembeliController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nama' => 'required',
+            'username' => 'required',
+            'nomor_hp' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ];
+        $massages = [
+            'required' => ':attribute wajib diisi',
+        ];
+
+        $this->validate($request, $rules, $massages);
         $pembeli = New Pembeli;
         $pembeli->nama = request('nama');
         $pembeli->username = request('username');

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,18 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nama' => 'required',
+            'username' => 'required',
+            'jenis_kelamin' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ];
+        $massages = [
+            'required' => ':attribute wajib diisi',
+        ];
+
+        $this->validate($request, $rules, $massages);
         $user = New User;
         $user->nama = request('nama');
         $user->username = request('username');

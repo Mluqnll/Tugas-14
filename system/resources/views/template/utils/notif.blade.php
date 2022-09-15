@@ -1,4 +1,4 @@
-@foreach (['success', 'warning', 'danger', 'primary'] as $status)
+@foreach (['success', 'warning', 'danger', 'primary', 'any'] as $status)
     @if (session($status))
         <div class="alert alert-{{ $status }} alert-dismissable custom-{{ $status }}-box">
             <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>

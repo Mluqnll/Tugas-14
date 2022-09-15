@@ -37,22 +37,26 @@
                 <div class="card">
                     <!--end card-header-->
                     <div class="card-body">
-                        <form action="{{url('admin/kategori/store')}}" method="post">
+                        <form action="{{ url('admin/kategori') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Nama</label>
+                                <label for="exampleInputPassword1">Nama
+                                    @error('nama')
+                                        <b style="color:red">{{ $message }}</b>
+                                    @enderror
+                                </label>
                                 <input type="text" class="form-control" id="exampleInputPassword1" name="nama">
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="InlineCheckbox" 
+                                    <input type="checkbox" class="custom-control-input" id="InlineCheckbox"
                                         data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                    
+
                                 </div>
                             </div>
                             <div class="float-right">
                                 <button class="btn btn-primary">Submit</button>
-                                <a href="{{url('admin/kategori')}}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ url('admin/kategori') }}" class="btn btn-danger">Cancel</a>
                             </div>
                         </form>
                     </div>

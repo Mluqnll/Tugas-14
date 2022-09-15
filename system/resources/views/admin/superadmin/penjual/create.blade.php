@@ -38,35 +38,63 @@
                     <div class="card-body">
                         <form action="{{ url('admin/penjual') }}" method="post">
                             @csrf
-                            <label class="mb-3">Nama</label>
+                            <label class="mb-3">Nama
+                                @error('nama')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <input type="text" class="form-control" name="nama">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="mb-3">Username</label>
+                                    <label class="mb-3">Username
+                                        @error('username')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="username">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-3">Jenis Kelamin</label>
+                                    <label class="mb-3">Jenis Kelamin
+                                        @error('jenis_kelamin')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="jenis_kelamin">
                                 </div>
                             </div>
                             
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="mb-3">Email</label>
+                                    <label class="mb-3">Email
+                                        @error('email')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="email" class="form-control" name="email">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="mb-3">No Hp</label>
+                                    <label class="mb-3">No Handphone
+                                        @error('nomor_hp')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="nomor_hp">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="mb-3">Nama Toko</label>
+                                    <label class="mb-3">Nama Toko
+                                        @error('nama_toko')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="nama_toko">
                                 </div>
-                                <div class="col-md-6"><label class="mb-3">Password</label>
+                                <div class="col-md-6"><label class="mb-3">Password
+                                    @error('password')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                </label>
                                     <input type="password" class="form-control" name="password">
                                 </div>
                             </div>

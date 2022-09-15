@@ -28,6 +28,19 @@ class ProdukController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nama' => 'required',
+            'id_penjual' => 'required',
+            'harga' => 'required',
+            'foto' => 'required',
+            'stock' => 'required',
+            'deskripsi' => 'required',
+        ];
+        $massages = [
+            'required' => ':attribute wajib diisi',
+        ];
+
+        $this->validate($request, $rules, $massages);
         $penjual = new Produk;
         $penjual->nama = request('nama');
         $penjual->id_penjual = request('id_penjual');

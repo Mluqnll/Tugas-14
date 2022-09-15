@@ -36,17 +36,39 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
+
+                        {{-- @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif --}}
                         <form action="{{ url('admin/user') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <label class="mb-3">Nama</label>
+                            <label class="mb-3">Nama
+                                @error('nama')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <input type="text" class="form-control" name="nama">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label class="mb-3">Username</label>
+                                    <label class="mb-3">Username
+                                        @error('username')
+                                            <b style="color:red">{{ $message }}</b>
+                                        @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="username">
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="mb-3">Jenis Kelamin</label>
+                                    <label class="mb-3">Jenis Kelamin
+                                        @error('jenis_kelamin')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                                    </label>
                                     <input type="text" class="form-control" name="jenis_kelamin">
                                 </div>
                                 <div class="col-md-4">
@@ -54,9 +76,17 @@
                                     <input type="file" class="form-control" name="foto" accept=".jpg">
                                 </div>
                             </div>
-                            <label class="mb-3">Email</label>
+                            <label class="mb-3">Email
+                                @error('email')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <input type="email" class="form-control" name="email">
-                            <label class="mb-3">Password</label>
+                            <label class="mb-3">Password
+                                @error('password')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <input type="password" class="form-control" name="password">
                             <div style="margin-top: 2%" class="float-right">
                                 <button class="btn btn-primary">Submit</button>

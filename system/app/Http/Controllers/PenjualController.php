@@ -24,6 +24,20 @@ class PenjualController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'nama' => 'required',
+            'username' => 'required',
+            'nomor_hp' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'nama_toko' => 'required',
+            'jenis_kelamin' => 'required',
+        ];
+        $massages = [
+            'required' => ':attribute wajib diisi',
+        ];
+
+        $this->validate($request, $rules, $massages);
         $penjual = New Penjual;
         $penjual->nama = request('nama');
         $penjual->username = request('username');

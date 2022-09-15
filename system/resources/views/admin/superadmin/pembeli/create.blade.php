@@ -38,18 +38,30 @@
                     <div class="card-body">
                         <form action="{{ url('admin/pembeli') }}" method="post">
                             @csrf
-                            <label class="mb-3">Nama</label>
+                            <label class="mb-3">Nama
+                                @error('nama')
+                                    <b style="color:red">{{ $message }}</b>
+                                @enderror
+                            </label>
                             <input type="text" class="form-control" name="nama">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Username</label>
+                                        <label class="my-3">Username
+                                            @error('username')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="text" id="date-format" class="form-control" name="username">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Email</label>
+                                        <label class="my-3">Email
+                                            @error('email')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="form-control" class="form-control" name="email">
                                     </div>
                                 </div>
@@ -57,13 +69,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Nomor Handphone</label>
+                                        <label class="my-3">Nomor Handphone
+                                            @error('nomor_hp')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="text" id="date-format" class="form-control" name="nomor_hp">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="my-3">Password</label>
+                                        <label class="my-3">Password
+                                            @error('password')
+                                                <b style="color:red">{{ $message }}</b>
+                                            @enderror
+                                        </label>
                                         <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
